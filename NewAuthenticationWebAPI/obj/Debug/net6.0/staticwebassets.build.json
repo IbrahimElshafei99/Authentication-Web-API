@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "rYXGCcCzdOvtFlId3xaQpZaARHwGa16HoVQh1C+I6fM=",
+  "Source": "NewAuthenticationWebAPI",
+  "BasePath": "_content/NewAuthenticationWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
