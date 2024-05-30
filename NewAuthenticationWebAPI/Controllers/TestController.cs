@@ -13,7 +13,7 @@ namespace NewAuthenticationWebAPI.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Token Works";
+            return "Token Works!!";
         }
     }
 }
