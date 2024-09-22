@@ -7,7 +7,6 @@ namespace NewAuthenticationWebAPI.Controllers
 {
     [Authorize(Roles = UserRoles.Admin)]
     [Route("api/[controller]")]
-    [ApiController]
     public class TestController : ControllerBase
     {
         [HttpGet]

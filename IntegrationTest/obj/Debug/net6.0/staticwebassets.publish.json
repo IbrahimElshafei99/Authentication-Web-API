@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "AIXtS7Y4BUUu0M+AkBXYn+dUAfPKdfLWGG3f2lh4PIA=",
+  "Source": "IntegrationTest",
+  "BasePath": "_content/IntegrationTest",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\Elsewedy\\Elswedy Electrometer\\Projects\\NewAuthenticationWebAPI\\NewAuthenticationWebAPI\\NewAuthenticationWebAPI.csproj",
+      "Version": 2,
+      "Source": "NewAuthenticationWebAPI",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\NewAuthenticationWebAPI",
+    "\\NewAuthenticationWebAPI\\Auth",
+    "\\NewAuthenticationWebAPI\\Controllers"
+  ],
+  "SelectedNode": "\\NewAuthenticationWebAPI\\Controllers\\AuthenticateController.cs",
+  "PreviewInSolutionExplorer": false
+}
