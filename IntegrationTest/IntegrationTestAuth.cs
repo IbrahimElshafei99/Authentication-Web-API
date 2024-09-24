@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestPlatform.TestHost;
 using NewAuthenticationWebAPI;
 using NewAuthenticationWebAPI.Auth;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -205,6 +206,9 @@ namespace IntegrationTest
             var responseString = await response.Content.ReadAsStringAsync();
 
             var token = JsonConvert.DeserializeObject<TokenResponse>(responseString);
+            var jwtToken = token.Token;
+
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
 
             Assert.NotNull(token);
         }
@@ -238,12 +242,36 @@ namespace IntegrationTest
         [Fact]
         public async Task TestController_should_return_string()
         {
+            // Login with registered Admin
             var _client = _factory.CreateClient();
+            RegisterModel loginModel = new RegisterModel()
+            {
+                Username = "testAdmin",
+                Password = "Admin@12345678"
+            };
 
-            var response = await _client.GetAsync("/api/Test");
+            var content = new StringContent(
+                JsonConvert.SerializeObject(loginModel),
+                Encoding.UTF8, "application/json");
+
+            var response = await _client.PostAsync("/api/Authenticate/Login", content);
             response.EnsureSuccessStatusCode();
 
+            // Extract JWT Token from the login response
+            var responseString = await response.Content.ReadAsStringAsync();
+            var token = JsonConvert.DeserializeObject<TokenResponse>(responseString);
+            var jwtToken = token.Token;
+
+            // Set the Authorization header with the JWT token
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+
+            // Make a request to the TestController (requires Admin role)
+            var controllerResponse = await _client.GetAsync("/api/Test");
+            controllerResponse.EnsureSuccessStatusCode();
+            var controllerResponseString = await controllerResponse.Content.ReadAsStringAsync();
+
             Assert.NotNull(response);
+            Assert.Equal("Token Works!!", controllerResponseString);
 
             _context.Users.RemoveRange(_context.Users);
             _context.SaveChanges();

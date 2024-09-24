@@ -68,7 +68,7 @@ namespace IntegrationTest
 
         }
 
-        private static string? GetConnectionString()
+        /*private static string? GetConnectionString()
         {
             var config = new ConfigurationBuilder().AddUserSecrets<WebApplicationFactory<TStartup>>().Build();
             var connString = "Server=.\\SQLEXPRESS;Database=TestNewAuthWebAPI;Trusted_Connection=True;TrustServerCertificate=True;";
@@ -81,6 +81,6 @@ namespace IntegrationTest
             var scope = serviceProvider.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
             return dbContext;
-        }
+        }*/
     }
 }
